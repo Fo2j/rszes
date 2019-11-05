@@ -38,80 +38,95 @@ int Boja(std::string boja) {
 
 void background_write(int boja_vr) {
   FILE *fp;
-  fp = fopen("/dev/vga_dma", "w");
-  if (fp == NULL) {
-    printf("Cannot open /dev/vga for write\n");
-    exit(EXIT_FAILURE);
-  }
-  for (int y = 0; y < 480; y++) {
-    for (int x = 0; x < 640; x++) {
-      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr);
-    }
-  }
+  for (int y = 0; y < 480; y++) 
+  {
+    for (int x = 0; x < 640; x++) 
+    {
+	fp = fopen("/dev/vga_dma", "w");
+ 	 if (fp == NULL) 
+	{
+   	 printf("Cannot open /dev/vga for write\n");
+    	exit(EXIT_FAILURE);
+ 	 }
 
-  fclose(fp);
-  if (fp == NULL) {
-    printf("Cannot close /dev/vga\n");
-    exit(EXIT_FAILURE);
+      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr); 
+ 	fclose(fp);
+ 	 if (fp == NULL)
+	 {
+   	 printf("Cannot close /dev/vga\n");
+   	 exit(EXIT_FAILURE);
+ 	 }
+    }  
   }
 }
 
 void horizontal_write(int x1, int x2, int y, int boja_vr) {
-  FILE *fp;
-  fp = fopen("/dev/vga_dma", "w");
-  if (fp == NULL) {
-    printf("Cannot open /dev/vga for write\n");
-    exit(EXIT_FAILURE);
-  }
-  for (int x = x1; x < x2; x++) {
-    fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr);
-  }
-  fclose(fp);
+	FILE *fp;
+  for (int x=x1 ; x < x2; x++) 
+  {
+        fp = fopen("/dev/vga_dma", "w");
+         if (fp == NULL) 
+        {
+         printf("Cannot open /dev/vga for write\n");
+        exit(EXIT_FAILURE);
+         }
 
-  if (fp == NULL) {
-    printf("Cannot close /dev/vga\n");
-    exit(EXIT_FAILURE);
+      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr); 
+        fclose(fp);
+         if (fp == NULL)
+         {
+         printf("Cannot close /dev/vga\n");
+         exit(EXIT_FAILURE);
+         }  
   }
 }
+  
 
 void vertical_write(int x, int y1, int y2, int boja_vr) {
   FILE *fp;
-  fp = fopen("/dev/vga_dma", "w");
-  if (fp == NULL) {
-    printf("Cannot open /dev/vga for write\n");
-    exit(EXIT_FAILURE);
-  }
-  for (int y = y1; y < y2; y++) {
-    fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr);
-  }
-  fclose(fp);
+  for (int y=y1 ; y < y2; y++) 
+  {
+        fp = fopen("/dev/vga_dma", "w");
+         if (fp == NULL) 
+        {
+         printf("Cannot open /dev/vga for write\n");
+        exit(EXIT_FAILURE);
+         }
 
-  if (fp == NULL) {
-    printf("Cannot close /dev/vga\n");
-    exit(EXIT_FAILURE);
+      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr); 
+        fclose(fp);
+         if (fp == NULL)
+         {
+         printf("Cannot close /dev/vga\n");
+         exit(EXIT_FAILURE);
+         }  
   }
 }
 
 void rect_write(int x1, int x2, int y1, int y2, int boja_vr) {
-  FILE *fp;
-  fp = fopen("/dev/vga_dma", "w");
-  if (fp == NULL) {
-    printf("Cannot open /dev/vga for write\n");
-    exit(EXIT_FAILURE);
-  }
-  for (int x = x1; x < x2; x++) {
-    for (int y = y1; y < y2; y++) {
-      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr);
-    }
-  }
+   FILE *fp;
+  for (int y = y1; y < y2; y++) 
+  {
+    for (int x = x1; x < x2; x++) 
+    {
+        fp = fopen("/dev/vga_dma", "w");
+         if (fp == NULL) 
+        {
+         printf("Cannot open /dev/vga for write\n");
+        exit(EXIT_FAILURE);
+         }
 
-  fclose(fp);
-  if (fp == NULL) {
-    printf("Cannot close /dev/vga\n");
-    exit(EXIT_FAILURE);
+      fprintf(fp, "%d,%d,%#04x\n", x, y, boja_vr); 
+        fclose(fp);
+         if (fp == NULL)
+         {
+         printf("Cannot close /dev/vga\n");
+         exit(EXIT_FAILURE);
+         }
+    }  
   }
 }
-
+ 
 int main(int argc, char **argv) {
   int x1, x, x2, y1, y2, y;
   int boja_vr;
