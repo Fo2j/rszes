@@ -18,6 +18,7 @@ using namespace std;
 // leave uncommented to write directly to memory (faster)
 
 int Boja(std::string boja) {
+
   int boja_vr = 0;
   if (boja.compare("RED") == 0)
     boja_vr = 0xF800;
