@@ -19,6 +19,7 @@ using namespace std;
 
 int Boja(std::string boja) {
   int boja_vr = 0;
+
   if (boja.compare("RED") == 0)
     boja_vr = 0xF800;
   else if (boja.compare("GREEN") == 0)
