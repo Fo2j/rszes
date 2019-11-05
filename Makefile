@@ -4,7 +4,7 @@ LDFLAGS  := -L/usr/lib -lstdc++ -lm
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := .
-TARGET   := program
+TARGET   := prvi_projekat
 INCLUDE  := -Iinclude/
 SRC      :=  $(wildcard *.cpp)
 
